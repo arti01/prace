@@ -197,7 +197,7 @@
                 "resources": {
                     "limits": {
                         "memory": "${MEMORY_LIMIT}"
-                        "cpu": 100Mi
+                        "cpu": "50Mi"
                     }
                 },
                 "env": [
@@ -205,7 +205,7 @@
                 "resources": {
                   "limits": {
                     "memory": "${MEMORY_LIMIT}"
-                    "cpu": 100Mi
+                    "cpu": "50Mi"
                   }
                 }
               }
@@ -242,7 +242,7 @@
       "displayName": "Memory Limit",
       "description": "Maximum amount of memory the container can use.",
       "required": true,
-      "value": "256Mi"
+      "value": "1024Mi"
     },
     {
       "name": "SOURCE_REPOSITORY_URL",
