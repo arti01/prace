@@ -242,14 +242,14 @@
       "displayName": "Memory Limit",
       "description": "Maximum amount of memory the container can use.",
       "required": true,
-      "value": "1024Mi"
+      "value": "128Mi"
     },
     {
       "name": "SOURCE_REPOSITORY_URL",
       "displayName": "Git Repository URL",
       "description": "The URL of the repository with your application source code.",
       "required": true,
-      "value": "https://github.com/sclorg/nginx-ex.git"
+      "value": "https://github.com/arti01/prace.git"
     },
     {
       "name": "SOURCE_REPOSITORY_REF",
