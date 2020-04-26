@@ -1,27 +1,23 @@
-# Pierwszy
+# Nginx HTTP server and reverse proxy (nginx) S2I Sample Application
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 9.1.3.
+This is a very basic sample application repository that can be built and deployed
+on [OpenShift](https://www.openshift.com) using the [Nginx HTTP server and a reverse proxy builder image](https://github.com/sclorg/nginx-container).
 
-## Development server
+The application serves a single static html page via nginx.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+To build and run the application:
 
-## Code scaffolding
+```
+$ s2i build https://github.com/sclorg/nginx-ex centos/nginx-112-centos7 mynginximage
+$ docker run -p 8080:8080 mynginximage
+$ # browse to http://localhost:8080
+```
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+You can also build and deploy the application on OpenShift, assuming you have a
+working `oc` command line environment connected to your cluster already:
 
-## Build
+`$ oc new-app centos/nginx-112-centos7~https://github.com/sclorg/nginx-ex`
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+You can also deploy the sample template for the application:
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+`$ oc new-app -f https://raw.githubusercontent.com/sclorg/nginx-ex/master/openshift/templates/nginx.json`
